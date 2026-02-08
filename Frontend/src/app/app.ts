@@ -15,6 +15,11 @@ import { catchError, concatMap, distinctUntilChanged, switchMap } from 'rxjs/ope
 export class AppComponent implements OnInit, OnDestroy {
   laserData = null;
   sisxtyData = null;
+
+  // Due segnali distinti per i log
+  laserLog = signal<any[]>([]);
+  sixtyLog = signal<any[]>([]);
+
 //  dashboardData: any = null;
   dashboardData = signal<any>(null);
   historyLog = signal<any[]>([]);
@@ -63,7 +68,9 @@ export class AppComponent implements OnInit, OnDestroy {
     };*/
     
     // Passiamo i dati alla funzione dello storico
-        this.addHistoryLog(data);
+//        this.addHistoryLog(data);
+        // Aggiorniamo i log separatamente
+        this.updateMachineLogs(data);
   //   this.cdr.markForCheck();
 /*
         console.log('arrivati dati', data);
@@ -82,6 +89,26 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
+  private updateMachineLogs(data: any) {
+    const time = new Date().toLocaleTimeString();
+
+    // Log Laser
+    const laserEntry = {
+      ora: time,
+      stato: data.laser?.stato,
+      info: `Job: ${data.laser?.commessaAttuale} | ${Math.round(data.laser?.potenzaWatt)}W`
+    };
+    this.laserLog.update(logs => [laserEntry, ...logs].slice(0, 50));
+
+    // Log Sixty
+    const sixtyEntry = {
+      ora: time,
+      stato: data.sixty?.stato,
+      info: `Ricetta: ${data.sixty?.ricettaAttiva} | Ang: ${data.sixty?.angoloCurvatura}°`
+    };
+    this.sixtyLog.update(logs => [sixtyEntry, ...logs].slice(0, 50));
+  }
+  
   private addHistoryLog(data: any) {
     if (!data) return;
 

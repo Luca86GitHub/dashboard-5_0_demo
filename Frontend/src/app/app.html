@@ -27,31 +27,59 @@
     </table>
   </section>
 
-  <section class="panel">
-  <h2>📜 Registro Eventi Real-Time (Ultimi 50)</h2>
-  <div class="history-scroll"> <table class="history-table">
-      <thead>
-        <tr>
-          <th>Ora</th>
-          <th>Macchina</th>
-          <th>Stato</th>
-          <th>Dettagli Operativi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let log of historyLog()" [ngClass]="{'row-laser': log.macchina === 'LASER LT5', 'row-sixty': log.macchina === 'SIXTY'}">
-          <td><small>{{ log.ora }}</small></td>
-          <td><strong>{{ log.macchina }}</strong></td>
-          <td>
-            <span class="status-dot" [class.dot-run]="log.evento === 'RUN'"></span>
-            {{ log.evento }}
-          </td>
-          <td>{{ log.dettaglio }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<div class="dashboard-container">
+  <section class="logs-section">
+    <h2>📋 Registri Eventi Dettagliati</h2>
+    
+    <div class="logs-grid">
+      
+      <div class="log-panel laser-border">
+        <h3>Storico LASER LT5</h3>
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Ora</th>
+                <th>Stato</th>
+                <th>Dettagli Tecnici</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let entry of laserLog()">
+                <td><small>{{ entry.ora }}</small></td>
+                <td><span class="status-tag" [class.run]="entry.stato === 'RUN'">{{ entry.stato }}</span></td>
+                <td>{{ entry.info }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="log-panel sixty-border">
+        <h3>Storico SIXTY</h3>
+        <div class="table-wrapper">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Ora</th>
+                <th>Stato</th>
+                <th>Dettagli Tecnici</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let entry of sixtyLog()">
+                <td><small>{{ entry.ora }}</small></td>
+                <td><span class="status-tag" [class.run]="entry.stato === 'RUN'">{{ entry.stato }}</span></td>
+                <td>{{ entry.info }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
    
 </div>
  
