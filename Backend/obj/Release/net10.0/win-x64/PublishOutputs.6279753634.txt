@@ -1,4 +1,0 @@
-/workspaces/dashboard-5_0_demo/Backend/bin/Release/net10.0/win-x64/publish/appsettings.Development.json
-/workspaces/dashboard-5_0_demo/Backend/bin/Release/net10.0/win-x64/publish/appsettings.json
-/workspaces/dashboard-5_0_demo/Backend/bin/Release/net10.0/win-x64/publish/Backend.pdb
-/workspaces/dashboard-5_0_demo/Backend/bin/Release/net10.0/win-x64/publish/Backend.exe
