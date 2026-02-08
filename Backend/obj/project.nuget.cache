@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "+msyEiPmaR4=",
+  "dgSpecHash": "KYtckJyiXwo=",
   "success": true,
   "projectFilePath": "/workspaces/dashboard-5_0_demo/Backend/Backend.csproj",
   "expectedPackageFiles": [
     "/home/codespace/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0/microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+    "/home/codespace/.nuget/packages/microsoft.net.illink.tasks/10.0.0/microsoft.net.illink.tasks.10.0.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.netcore.app.runtime.win-x64/10.0.0/microsoft.netcore.app.runtime.win-x64.10.0.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.aspnetcore.app.runtime.win-x64/10.0.0/microsoft.aspnetcore.app.runtime.win-x64.10.0.0.nupkg.sha512",
+    "/home/codespace/.nuget/packages/microsoft.netcore.app.host.win-x64/10.0.0/microsoft.netcore.app.host.win-x64.10.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -29,7 +29,8 @@ export class AppComponent implements OnInit, OnDestroy {
   private lastLaserJob = '';
   private lastSixtyJob = '';
   private subscription!: Subscription;
-  private apiUrl = 'https://refactored-space-capybara-5g9rxp74v75hv56j-5064.app.github.dev/api/dashboard';
+//  private apiUrl = 'https://refactored-space-capybara-5g9rxp74v75hv56j-5064.app.github.dev/api/dashboard';
+  private apiUrl = '/api/dashboard';
 
 
   constructor(private http: HttpClient) {}
@@ -108,7 +109,7 @@ export class AppComponent implements OnInit, OnDestroy {
     };
     this.sixtyLog.update(logs => [sixtyEntry, ...logs].slice(0, 50));
   }
-  
+
   private addHistoryLog(data: any) {
     if (!data) return;
 
