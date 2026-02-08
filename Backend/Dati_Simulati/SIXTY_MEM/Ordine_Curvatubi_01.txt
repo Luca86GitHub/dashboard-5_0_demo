@@ -1,0 +1,1 @@
+Ricetta=Scarico_Sport;Pezzi=5

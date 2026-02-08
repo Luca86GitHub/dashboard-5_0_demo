@@ -1,0 +1,97 @@
+:host {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: block;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 15px;
+}
+
+h1 { color: #4CAF50; margin: 0; font-size: 1.5rem; }
+.server-status { color: #4CAF50; font-weight: bold; font-size: 0.9rem; }
+
+.panel {
+  background: #1e1e1e;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+h2 { margin-top: 0; color: #bbb; font-size: 1.1rem; border-left: 4px solid #4CAF50; padding-left: 10px; }
+
+/* TABLE STYLES */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  background: #2c2c2c;
+  color: #888;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  vertical-align: middle;
+}
+
+/* Real-time Row Highlights */
+tr.working { background-color: rgba(76, 175, 80, 0.05); }
+tr.working td { color: #fff; }
+
+.badge {
+  background: #444;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.badge.run { background: #4CAF50; color: #000; }
+
+.tech-data { font-family: monospace; font-size: 0.85rem; color: #aaa; }
+.energy { font-weight: bold; color: #FFC107; }
+
+/* History Table specific */
+.history-table th { background: #252525; }
+.history-table tr:nth-child(even) { background: #1a1a1a; }
+
+.loading-screen {
+  text-align: center;
+  margin-top: 100px;
+  color: #ff5252;
+}
+
+.row-laser { border-left: 4px solid #00d1b2; background: rgba(0, 209, 178, 0.05); }
+.row-sixty { border-left: 4px solid #3273dc; background: rgba(50, 115, 220, 0.05); }
+
+.status-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ff3860; // Default IDLE/STOP (rosso)
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.dot-run { background-color: #48c774; } // RUN (verde)
+
+.history-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+}

@@ -1,0 +1,57 @@
+<div class="dashboard-container">
+  
+  <header>
+    <h1>🏭 INDUSTRIA 5.0 MONITOR</h1>
+    <div class="server-status">🟢 SYSTEM ONLINE</div>
+  </header>
+
+<div>CONTATORE: {{counter()}}</div>
+
+<section class="panel" *ngIf="dashboardData()">
+    <h2>⚡ Attività in Tempo Reale</h2>
+    <table class="data-table">
+      <tbody>
+        <tr [class.working]="dashboardData().laser?.stato === 'RUN'">
+          <td><strong>LASER LT5</strong></td>
+          <td>{{ dashboardData().laser?.stato }}</td>
+          <td>{{ dashboardData().laser?.commessaAttuale }}</td>
+          <td class="energy">{{ dashboardData().laser?.consumoIstantaneoKW | number:'1.1-1' }} kW</td>
+        </tr>
+        <tr [class.working]="dashboardData().sixty?.stato === 'RUN'">
+          <td><strong>SIXTY</strong></td>
+          <td>{{ dashboardData().sixty?.stato }}</td>
+          <td>{{ dashboardData().sixty?.ricettaAttiva }}</td>
+          <td class="energy">{{ dashboardData().sixty?.consumoIstantaneoKW | number:'1.1-1' }} kW</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+  <h2>📜 Registro Eventi Real-Time (Ultimi 50)</h2>
+  <div class="history-scroll"> <table class="history-table">
+      <thead>
+        <tr>
+          <th>Ora</th>
+          <th>Macchina</th>
+          <th>Stato</th>
+          <th>Dettagli Operativi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of historyLog()" [ngClass]="{'row-laser': log.macchina === 'LASER LT5', 'row-sixty': log.macchina === 'SIXTY'}">
+          <td><small>{{ log.ora }}</small></td>
+          <td><strong>{{ log.macchina }}</strong></td>
+          <td>
+            <span class="status-dot" [class.dot-run]="log.evento === 'RUN'"></span>
+            {{ log.evento }}
+          </td>
+          <td>{{ log.dettaglio }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+   
+</div>
+ 
